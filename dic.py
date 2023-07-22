@@ -21,3 +21,4 @@ print(cities)
 
 cities.clear()
 print(cities)
+print(cities)
