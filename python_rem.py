@@ -86,6 +86,8 @@ def python_lists():
     print(z)
     print(3 in z)
     print(2 in z)
+    z.clear()
+    print(z)
 
 
 # python_lists()
@@ -106,5 +108,82 @@ def python_dic():
     post_codes.clear()
     print(post_codes)
 
+    # Dictionary pass by reference example
+    name_dic = {"sudhara": ["s", "a"], "dhananjaya": ["d", "a"]}
 
-python_dic()
+    fname = name_dic["sudhara"]
+    fname.append("abeythunga")
+    print(fname)
+    print(name_dic)
+
+    name_dic["abeythunga"] = 1
+    print(name_dic)
+    abe_value = name_dic["abeythunga"]
+    abe_value = 2
+
+    print(abe_value)
+    print(name_dic)
+
+
+# python_dic()
+
+
+def python_set():
+    x = {"Hello", "World", "Mariline", "Hello", "x"}
+    print(x)
+
+    x.add("Aish")
+    print(x)
+
+    x.add("hello")
+    print(x)
+
+    x.remove("Aish")
+    print(x)
+
+    # y = x['Hello'] # Didnt working
+    # z = x[0] # Didnt working
+
+    x2 = {"x", "y"}
+    x3 = x.union(x2)
+    print(x3)
+    x4 = x | x2
+    print(x4)
+
+    print(x)
+    x5 = x - x2
+    print(x5)
+
+    f = {"11": "22"}
+    print("22" in f)
+
+
+# python_set()
+
+
+def python_tup():
+    sudhara = ("sd", 28, "Sri Lanka", "Sri Lanka")
+    print(sudhara)
+    print(sudhara[0])
+    print(sudhara.count("Sri Lanka"))
+    tup = (12, "sd", 28)
+    index, name, age = tup
+    print(tup, index, name, age)
+
+
+# python_tup()
+
+
+def slicing():
+    list1 = ["a", "c", "d", "t", "u"]
+    print(list1[:2])
+    print(list1[2:23])
+    print(list1[-1])
+    print(list1[-2:])
+    print(len(list1))
+    name = "Sudhara Dhananjaya"
+    print(name[0:6])
+    print(name[0])
+
+
+slicing()
