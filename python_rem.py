@@ -290,5 +290,112 @@ def total():
         count += 1
     print("Total in while loop: ", str(total))
 
+    print(sum(numbers))
 
-total()
+
+# total()
+
+
+def max_number():
+    numbers = [-10, -11, -12, -13, -56, -1, -13, -2]
+    max_num = numbers[0]
+    for i in numbers:
+        if i > max_num:
+            max_num = i
+    print(max_num)
+
+
+# max_number()
+
+
+def dic_ite():
+    dic = {1: "a", 2: "b", 3: "c"}
+    for i in dic:
+        print(type(i))
+
+    for i in dic.items():
+        num, letter = i
+        print(num, letter)
+
+
+# dic_ite()
+
+
+def test(name, age="23"):
+    print(age, name)
+
+
+# test("sd")
+
+
+# packed args
+def packed_args(*names):
+    print(type(names))
+    print(names)
+
+
+# packed_args("a", "b", "c")
+
+
+# keywords args
+def keyword_args(**params):
+    print(type(params))
+    print(params)
+
+
+# keyword_args(a=34, c=43)
+
+
+def both_args(*vals, **params):
+    print(type(vals))
+    print(vals)
+    print(type(params))
+    print(params)
+
+
+# both_args(34, 54, "dsd", name="ds", age=54)
+
+
+def convert_dic(name, age):
+    print(name, age)
+
+
+dic = {"name": "sd", "age": 23}
+
+# convert_dic(**dic)
+
+
+def list_comprehension():
+    def is_odd(a):
+        return a % 2 == 0
+
+    def is_odd_string(a):
+        return {a: "Even"} if a % 2 == 0 else {a: "Odd"}
+
+    def is_odd_string_dic(a):
+        return "Even" if a % 2 == 0 else "Odd"
+
+    a = [2, 32, 4, 32, 3, 43, 6, 43, 543]
+    b = [i for i in a]
+    c = [is_odd(i) for i in a]
+    d = [is_odd_string(i) for i in a]
+    e = [is_odd_string(values) for i, values in enumerate(a) if i % 2 == 0]
+    f = [
+        {values: is_odd_string_dic(values)}
+        for i, values in enumerate(a)
+        if i % 2 == 0  # list comprehension
+    ]
+    g = {
+        values: is_odd_string_dic(values) for i, values in enumerate(a) if i % 2 == 0
+    }  # dictionary comprehension
+
+    print(a)
+    print(b)
+    print(c)
+    print(d)
+    print(e)
+    print(f)
+    print(g)
+
+
+list_comprehension()
