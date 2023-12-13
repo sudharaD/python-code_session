@@ -186,4 +186,109 @@ def slicing():
     print(name[0])
 
 
-slicing()
+# slicing()
+
+
+# Conditioning
+def conditioning():
+    result = None
+    mark = 809
+    age = 34
+    height = 168
+
+    if mark >= 75:
+        result = "Pass"
+
+    print(result)
+
+    if mark <= 50:
+        print("F")
+    elif mark > 50 and mark < 100:
+        print("A")
+    else:
+        print("Invalid")
+
+    if age <= 17 or age > 60:
+        print("Go Away")
+        exit()
+
+    if age == 34:
+        print("Pass")
+    else:
+        print("Dont know")
+
+    if height > 150:
+        job = "Security"
+    else:
+        job = "Labor"
+
+    print(job)
+
+    job2 = "Security2" if height > 150 else "Labor2"  # ternary operator
+    print(job2)
+
+
+# conditioning()
+
+
+# Looping
+def looping():
+    list1 = [1, 45, 53, 24, 54, 4]
+    for item in list1:
+        print(item)
+
+    for item in range(len(list1)):
+        print(str(item) + ". " + str(list1[item]))
+
+    for item in enumerate(list1):
+        print(type(item), item)
+
+    for item in enumerate(list1):
+        print(item[0], item[1])
+
+    for x, y in enumerate(list1):
+        print(x, y)
+
+    r = range(0, 5)
+    print(type(r))
+    for i in r:
+        print(i)
+
+
+# looping()
+def python_while():
+    numbers = [10, 11, 12, 13]
+    count = 0
+    sum = 0
+    while count < 5:
+        print(count)
+        count += 1
+
+    ite = 0
+    while ite > len(numbers):
+        sum += numbers[ite]
+        ite += 1
+
+    print(sum)
+
+
+# python_while()
+
+
+def total():
+    numbers = [10, 11, 12, 13]
+    total = 0
+
+    for i in numbers:
+        total += i
+    print("Total: ", str(total))
+
+    count = 0
+    total = 0
+    while count < len(numbers):
+        total += numbers[count]
+        count += 1
+    print("Total in while loop: ", str(total))
+
+
+total()
