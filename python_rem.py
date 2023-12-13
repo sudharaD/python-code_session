@@ -398,4 +398,99 @@ def list_comprehension():
     print(g)
 
 
-list_comprehension()
+# list_comprehension()
+
+
+def python_generators():
+    def odd_gen(number):
+        for i in range(number):
+            if i % 2 == 1:
+                print("Odd", i)
+                yield i
+
+    print("start")
+    x = odd_gen(1000)
+    for i in x:
+        print("Loop", i)
+
+    for (
+        i
+    ) in (
+        x
+    ):  # After consume a generator it cant be used again. Generator should reset before that.
+        # We can call the function again and get another generator.
+        print("Loop", i)
+
+    print("finish")
+    print(x)
+
+
+# python_generators()
+
+
+def str_format():
+    name = "Sudhara"
+    age = 28
+    message = "Hello, {0}. You are {1} years old. ({0})".format(name, age)
+    print(message)
+    message = "Hello, {}. You are {:05d} years old. ()".format(name, age)
+    print(message)
+    message = f"Hello, {name}. You are {age:05d} years old. ()"
+    print(message)
+
+
+# str_format()
+
+
+def comments(x: int = None, y: int = None) -> int:  # type hinting
+    # program is not crashing when wrong data type passed or returned
+    """
+    This is do something
+    @param x: first number
+    @param y: second number
+    @returns: multiplication of x and y
+    """
+    print(x * y)
+
+    # TODO:
+    # BUG:
+    # FIXME:
+
+
+# comments(5, 3)
+
+
+def read_file():
+    file = open("data.txt")
+    # print(type(file))
+    contents = file.read(1)
+    print(contents)
+    contents = file.readline()
+    print(contents)
+
+    while True:
+        contents = file.readline()
+        if not contents:
+            break
+        print(contents)
+
+    file.close()
+
+
+# read_file()
+
+
+def read_file():
+    with open(
+        "data.txt", "w"
+    ) as file:  # with open a context. after use with dont need to close file.close.
+        # because with doing it automatically.
+        for i in range(100):
+            file.write(str(i) + "\n")
+
+    numbers = ["1", "2", "3", "4"]
+    msg = ", ".join(numbers)
+    print(msg)
+
+
+read_file()
