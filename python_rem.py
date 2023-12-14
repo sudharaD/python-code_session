@@ -493,4 +493,38 @@ def read_file():
     print(msg)
 
 
-read_file()
+# read_file()
+
+
+def marks_handler():
+    science = {}
+    math = {}
+    english = {}
+    unknown = {}
+    name_set = set()
+
+    with open("marks.txt") as file:
+        field_names = file.readline()
+
+        for line in file:
+            line_tuple = tuple(line.split(","))
+            name_set.add(line_tuple[0])
+
+            if "Science" in line_tuple:
+                science[line_tuple[0]] = int(line_tuple[2][:-1])
+            elif "Math" in line_tuple:
+                math[line_tuple[0]] = int(line_tuple[2][:-1])
+            elif "English" in line_tuple:
+                english[line_tuple[0]] = int(line_tuple[2][:-1])
+            else:
+                unknown[line_tuple[0]] = int(line_tuple[2][:-1])
+
+        marks = [value for key, value in science.items()]
+        print(f"Max Science Score {max(marks)}")
+        marks = [value for key, value in math.items()]
+        print(f"Max Math Score {max(marks)}")
+        marks = [value for key, value in english.items()]
+        print(f"Max English Score {max(marks)}")
+
+
+marks_handler()
