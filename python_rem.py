@@ -527,4 +527,46 @@ def marks_handler():
         print(f"Max English Score {max(marks)}")
 
 
-marks_handler()
+# marks_handler()
+
+import requests
+
+
+def python_pip():
+    response = requests.get(
+        "https://www.googleapis.com/books/v1/volumes?q=harry_potter"
+    )
+    print(response)
+    content = response.json()
+    # print(content)
+    print(len(content))
+    print(type(content))
+    first_key = next(iter(content))
+    print(content[first_key])
+
+
+# python_pip()
+
+
+class Dog:
+    name = ""
+    breed = ""
+
+    def bark(self, message):
+        print("woof woof", message)
+
+
+pomanarian = Dog()
+print(type(pomanarian))
+print(pomanarian)
+
+pomanarian.name = "Scooby"
+pomanarian.breed = "Unknown"
+
+print(pomanarian.name, pomanarian.breed)
+
+jerman_shepard = Dog()
+print(jerman_shepard.name, jerman_shepard.breed)
+
+pomanarian.bark("Hello")
+Dog.bark(pomanarian, "Hi")
