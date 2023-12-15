@@ -549,24 +549,40 @@ def python_pip():
 
 
 class Dog:
-    name = ""
-    breed = ""
+    # Constructer method
+    def __init__(self, name="Unknown"):
+        self.name = name
+
+    def set_name(self, name):
+        self.name = name
 
     def bark(self, message):
         print("woof woof", message)
 
+    def walk(self, message):
+        msg = f"{message}, {self.name} is walking"
+        print(msg)
+
 
 pomanarian = Dog()
-print(type(pomanarian))
-print(pomanarian)
+# print(type(pomanarian))
+# print(pomanarian)
 
 pomanarian.name = "Scooby"
-pomanarian.breed = "Unknown"
+# pomanarian.breed = "Unknown"
 
-print(pomanarian.name, pomanarian.breed)
+# print(pomanarian.name, pomanarian.breed)
 
 jerman_shepard = Dog()
-print(jerman_shepard.name, jerman_shepard.breed)
+# print(jerman_shepard.name, jerman_shepard.breed)
 
 pomanarian.bark("Hello")
 Dog.bark(pomanarian, "Hi")
+
+huski = Dog("Big Daddy")
+huski.walk("Hey")
+huski.set_name("Browny")
+huski.walk("Hi")
+
+rotwiler = Dog()
+rotwiler.walk("Hello")
