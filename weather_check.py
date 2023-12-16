@@ -1,21 +1,31 @@
 from threading import Thread
+from multiprocessing import Process
 import requests
 import json
 import time
 
 
-class WeatherCheck(Thread):
-    def __init__(self, api_key, city, delay=5):
+class WeatherCheck(Process):
+    def __init__(self, api_key, city, quaries, delay=5):
         super(WeatherCheck, self).__init__()
         self.api_key = api_key
         self.city = city
+        self.quaries = quaries
         self.delay = delay
 
     def run(self):
         while True:
             weather = self.__get_weather_report(self.api_key, self.city)
-            print(weather)
+            # self.__update_weather_object(weather)
+            self.quaries.put(weather)
+
+            # print("Weather is", weather)
+
             time.sleep(self.delay)
+
+    def __update_weather_object(self, weather):
+        for attr in ["id", "main", "description", "icon"]:
+            self.weather[attr] = weather[attr]
 
     def __get_weather_report(self, api_key, city):
         url = (
