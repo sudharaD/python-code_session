@@ -7,7 +7,7 @@ import engine
 # Unsplash key - 5jxcmVNCwLqlUG2J49-c4MZJjZT5uNQOPGFQvqclQCM
 
 api_key = "aeb23a1310ca2a5a2afe2202437dc509"
-city = "colombo"
+city = "dubai"
 
 quaries = Queue()
 images = Queue()
