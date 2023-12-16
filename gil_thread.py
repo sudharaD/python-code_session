@@ -1,10 +1,11 @@
-from collections.abc import Callable, Iterable, Mapping
-from threading import Thread
-from typing import Any
+# from collections.abc import Callable, Iterable, Mapping
+# from threading import Thread
+# from typing import Any
 import requests
+from multiprocessing import Process
 
 
-class ImageDownloder(Thread):
+class ImageDownloder(Process):
     def __init__(self, image_id, name, urls, my_list):
         super(ImageDownloder, self).__init__()
         self.id = image_id
