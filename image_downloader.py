@@ -16,10 +16,10 @@ class ImageDownloader(Process):
         query = self.quaries.get()
         print("Quary", query)
         while query is not None:
-            if self.previous_query == query:
-                print("Same query requested")
-                query = self.quaries.get()
-                continue
+            # if self.previous_query == query:
+            #     print("Same query requested")
+            #     query = self.quaries.get()
+            #     continue
 
             url = f"https://unsplash.com/napi/search/photos?query={query}"
 
@@ -28,8 +28,8 @@ class ImageDownloader(Process):
             if r.status_code == 200:
                 response_json = json.loads(r.content)
                 results = response_json["results"]
-                if len(results) > 0:
-                    self.__download_image(results[0])
+                for image in results:
+                    self.__download_image(image)
             else:
                 print("Image couldn't be retrived")
 
